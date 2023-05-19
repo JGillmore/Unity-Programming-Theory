@@ -1,18 +1,33 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public static GameManager Instance;
+    public int gameDifficulty { get; private set; }
+
+    private void Awake()
     {
-        
+        if (Instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SetDifficulty(int difficulty)
     {
-        
+        if (difficulty < 1 || difficulty > 3)
+        {
+            Debug.LogError("Game difficulty must be between 1 and 3 (Easy, Med, Hard)");
+            return;
+        }
+        gameDifficulty = difficulty;
+        SceneManager.LoadScene(1);
     }
 }
