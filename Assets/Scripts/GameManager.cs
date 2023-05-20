@@ -30,4 +30,9 @@ public class GameManager : MonoBehaviour
         gameDifficulty = difficulty;
         SceneManager.LoadScene(1);
     }
+
+    public void MainMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
 }
