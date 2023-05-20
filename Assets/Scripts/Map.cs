@@ -19,9 +19,7 @@ public class Map : MonoBehaviour
         bombs = 10 * difficulty * difficulty;
         mapSize = difficulty * 5 + 5;
         map = new int[mapSize,mapSize];
-        DebugLogMap();
         PopulateMap(bombs);
-        DebugLogMap();
     }
 
     private void PopulateMap(int i)
@@ -60,20 +58,6 @@ public class Map : MonoBehaviour
         {
             map[x, y] += 1;
         }
-    }
-
-    void DebugLogMap() // can be removed for build
-    {
-        string lineToPrint = "";
-        for (int i = 0; i < mapSize; i++)
-        {
-            for (int j = 0; j < mapSize; j++)
-            {
-                lineToPrint += map[i, j] + ", ";
-            }
-            lineToPrint += "\n";
-        }
-        Debug.Log(lineToPrint);
     }
 
     private bool TileIsValid(int x, int y)
