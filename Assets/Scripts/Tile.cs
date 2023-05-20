@@ -16,7 +16,7 @@ public class Tile : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        valueText.text = "?";
+        valueText.text = "";
     }
 
     private void OnMouseUp()
